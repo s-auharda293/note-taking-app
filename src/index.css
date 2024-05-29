@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* 
+--- 01 TYPOGRAPHY  SYSTEM
+    
+-Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  background-color: #e8ecf4;
+}
+.center-container {
+  width: 80%;
+  margin: 10vh auto;
+  height: 80vh;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 12.88rem auto;
+  border-radius: 25px;
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////////
+
+                              SIDEBAR
+
+////////////////////////////////////////////////////////////////////////// 
+*/
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem 1.6rem 0 1.6rem;
+  gap: 4.2rem;
+  border-right: 1px solid #f7f7f7;
+}
+.sidebar h3 {
+  font-weight: 700;
+}
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2.4rem;
+  border: none;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.color-btn {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 100%;
+  border: none;
+}
+.btn-yellow {
+  background-color: #ffcc74;
+}
+.btn-orange {
+  background-color: #ff9c74;
+}
+.btn-purple {
+  background-color: #b894fc;
+}
+.btn-blue {
+  background-color: #08d4fc;
+}
+.btn-green {
+  background-color: #e8ec8c;
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////////
+
+                       MAIN       
+
+////////////////////////////////////////////////////////////////////////// 
+*/
+
+.main {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+/* SEARCHBAR */
+
+.search-bar {
+  margin: 2.4rem;
+  width: 40rem;
+}
+.search-bar input {
+  height: 4.4rem;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  border-left: none;
+}
+.search-bar .btn {
+  height: 4.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar button {
+  border: 1px solid #e0e4e4;
+  border-right: none;
+  font-size: 2.4rem;
+  border-radius: 15px;
+}
+.search-bar .btn:hover {
+  box-shadow: 0 0 10px 2px #86b7fe;
+}
+
+/* NOTE HEADING */
+
+.notes-heading {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-left: 2.4rem;
+}
+
+/* NOTES CONTAINER */
+
+.notes-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2.4rem;
+  overflow-x: auto;
+  margin: 2.4rem 0 0 2.4rem;
+  width: 90%;
+  height: 80%;
+}
+
+.note {
+  width: 200px;
+  max-height: 250px;
+  background-color: #ffcc74;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem;
+  color: #444;
+}
+.note-content {
+  font-size: 1.8rem;
+  width: 20rem;
+}
+.note-info {
+  font-size: 1.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.note-buttons {
+  display: flex;
+}
+.note .btn {
+  border-radius: 5px;
+}
+
+.note button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-button {
+  color: black;
+  font-size: 2.2rem;
+}
+.delete-button {
+  color: black;
+  font-size: 2.2rem;
+}
+.modal-btn {
+  font-size: 1.4rem;
+  width: auto;
+}
+.modal-btn-edit {
+  background-color: #86b7fe;
+}
