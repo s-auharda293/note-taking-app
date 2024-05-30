@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Note from "./Note";
 
-const NoteContainer = ({ notes, onDeleteNote }) => {
+const NoteContainer = ({ notes, onDeleteNote, onEditNote }) => {
   return (
     <div className="notes-container">
       {notes.map((note) => (
@@ -12,6 +12,7 @@ const NoteContainer = ({ notes, onDeleteNote }) => {
           key={note.id}
           onDeleteNote={onDeleteNote}
           id={note.id}
+          onEditNote={onEditNote}
         />
       ))}
     </div>

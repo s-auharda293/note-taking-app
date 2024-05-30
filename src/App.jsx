@@ -24,7 +24,7 @@ const App = () => {
 
     const newNote = {
       id: crypto.randomUUID(),
-      content: "This is a note.",
+      content: "This is a note. Please click on edit button to edit your note!",
       date: `${month}/${day}/${year}`,
       color: `${selectedColor}`,
     };
@@ -33,6 +33,13 @@ const App = () => {
     setNotes((notes) => [...notes, newNote]);
 
     // <Note />;
+  };
+
+  const handleEditNote = (id, editModalInput) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === id ? { ...note, content: editModalInput } : note
+    );
+    setNotes(updatedNotes);
   };
 
   const handleDeleteNote = (id) => {
@@ -51,7 +58,11 @@ const App = () => {
           onClickShowColorButtons={handleShowColorButtons}
           onHoldColor={handleHoldColor}
         />
-        <Main notes={notes} onDeleteNote={handleDeleteNote} />
+        <Main
+          notes={notes}
+          onDeleteNote={handleDeleteNote}
+          onEditNote={handleEditNote}
+        />
       </div>
     </>
   );
