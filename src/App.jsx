@@ -33,6 +33,14 @@ const App = () => {
     // <Note />;
   };
 
+  const handleDeleteNote = (id) => {
+    return setNotes((notes) =>
+      notes.filter((note) => {
+        return note.id !== id;
+      })
+    );
+  };
+
   return (
     <>
       <div className="center-container">
@@ -41,7 +49,7 @@ const App = () => {
           onClickShowColorButtons={handleShowColorButtons}
           onHoldColor={handleHoldColor}
         />
-        <Main notes={notes} />
+        <Main notes={notes} onDeleteNote={handleDeleteNote} />
       </div>
     </>
   );
@@ -111,12 +119,12 @@ const SideBar = ({
   );
 };
 
-const Main = ({ notes }) => {
+const Main = ({ notes, onDeleteNote }) => {
   return (
     <div className="main">
       <SearchBar />
       <h1 className="notes-heading">Notes</h1>
-      <NoteContainer notes={notes} />
+      <NoteContainer notes={notes} onDeleteNote={onDeleteNote} />
     </div>
   );
 };
@@ -130,7 +138,7 @@ const SearchBar = () => {
         </button>
         <input
           type="text"
-          className="form-control"
+          className="form-control search-input"
           placeholder="Search"
           aria-label="Example text with button addon"
           aria-describedby="button-addon1"
@@ -140,7 +148,7 @@ const SearchBar = () => {
   );
 };
 
-const NoteContainer = ({ notes }) => {
+const NoteContainer = ({ notes, onDeleteNote }) => {
   return (
     <div className="notes-container">
       {notes.map((note) => (
@@ -149,13 +157,15 @@ const NoteContainer = ({ notes }) => {
           date={note.date}
           color={note.color}
           key={note.id}
+          onDeleteNote={onDeleteNote}
+          id={note.id}
         />
       ))}
     </div>
   );
 };
 
-const Note = ({ content, date, color }) => {
+const Note = ({ content, date, color, onDeleteNote, id }) => {
   return (
     <div className={`note ${color}`}>
       <span className="note-content">{content}</span>
@@ -212,7 +222,11 @@ const Note = ({ content, date, color }) => {
 
             <ion-icon name="create-outline"></ion-icon>
           </button>
-          <button type="button" className="btn delete-button">
+          <button
+            type="button"
+            className="btn delete-button"
+            onClick={() => onDeleteNote(id)}
+          >
             <ion-icon name="trash-outline"></ion-icon>
           </button>
         </div>
