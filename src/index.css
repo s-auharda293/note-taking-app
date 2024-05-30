@@ -162,7 +162,7 @@ body {
 .note {
   width: 200px;
   max-height: 250px;
-  background-color: #ffcc74;
+  /* background-color: #ffcc74; */
   border-radius: 15px;
   display: flex;
   flex-direction: column;
