@@ -20,7 +20,7 @@ const App = () => {
 
   const handleHoldColor = (e) => {
     const selectedColor = e.target.className.split(" ")[1];
-    console.log(selectedColor);
+    // console.log(selectedColor);
 
     const newNote = {
       id: crypto.randomUUID(),
