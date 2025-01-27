@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import Main from "./MainSection";
 
@@ -11,8 +11,12 @@ const year = todayDate.getFullYear();
 let Notes = [];
 
 const App = () => {
-  const [showColorButtons, setShowColorButtons] = useState(false);
-  const [notes, setNotes] = useState(Notes);
+  
+  const retrievedNotes=JSON.parse(localStorage.getItem('notes'));
+  const retrievedColorOption=JSON.parse(localStorage.getItem('showColorButtons'));
+  
+  const [showColorButtons, setShowColorButtons] = useState(retrievedColorOption);
+  const [notes, setNotes] = useState(retrievedNotes);
 
   const handleShowColorButtons = () => {
     setShowColorButtons((colorButtons) => !colorButtons);
@@ -24,7 +28,7 @@ const App = () => {
 
     const newNote = {
       id: crypto.randomUUID(),
-      content: "This is a note. Please click on edit button to edit your note!",
+      content: "This is a note. Please click on edit button to edit your note and save changes!",
       date: `${month}/${day}/${year}`,
       color: `${selectedColor}`,
     };
@@ -50,6 +54,12 @@ const App = () => {
     );
   };
 
+  useEffect(()=>{
+    localStorage.setItem('notes', JSON.stringify(notes));
+    localStorage.setItem('showColorButtons',JSON.stringify(showColorButtons));
+  
+  },[notes,showColorButtons])
+
   return (
     <>
       <div className="center-container">
@@ -60,6 +70,7 @@ const App = () => {
         />
         <Main
           notes={notes}
+          setNotes={setNotes}
           onDeleteNote={handleDeleteNote}
           onEditNote={handleEditNote}
         />

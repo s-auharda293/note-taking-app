@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import Note from "./Note";
 
-const NoteContainer = ({ notes, onDeleteNote, onEditNote }) => {
+const NoteContainer = ({ notes,
+  onDeleteNote, onEditNote }) => {
+
   return (
     <div className="notes-container">
       {notes.map((note) => (
