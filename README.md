@@ -1,5 +1,1 @@
-A note taking app built with react js.
-
-The Search functionality has not been implemented.
-
-The app has been deployed at https://note-taking-app-nu-eight.vercel.app/
+A responsive note taking web app built with react js. Allows user to add, edit, delete notes.
